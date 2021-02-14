@@ -55,8 +55,11 @@ namespace AutoPark
                 $"Max milleage = {carList.Max(car => car.Mileage)}\n" +
                 $"Min milleage = {carList.Min(car => car.Mileage)}");
    
-
             outputService.ShowSameElements(carList);
+            var maxKilometresCar = carList.Aggregate((a, b) => a.MaxKilometresRange > b.MaxKilometresRange ? a : b);
+            Console.WriteLine(
+                $"Max kilometres car name: {maxKilometresCar} \n" +
+                $"Km: {maxKilometresCar.MaxKilometresRange:0.00}");
         }
     }
 }

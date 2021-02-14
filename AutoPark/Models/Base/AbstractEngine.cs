@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 
 namespace AutoPark.Models.Base
 {
-    public class Engine
+    public abstract class AbstractEngine
     {
         public string Type { get; set; }
         public double TaxCoeff { get; set; }
         public int EngineCapacity { get; protected set; }
-        public Engine(string type, double coef)
+        protected AbstractEngine(string type, double coef)
         {
             Type = type;
             TaxCoeff = coef;
         }
+        public abstract double GetMaxKilometers(double fuelTank);
     }
 }

@@ -14,7 +14,7 @@ namespace AutoPark.Models.Base
 
         public Vehicle(
             VehicleType vehicleType, 
-            Engine engine,
+            AbstractEngine engine,
             string modelName, 
             string registrationNumber,
             int weight,
@@ -32,9 +32,9 @@ namespace AutoPark.Models.Base
             Mileage = mileage;
             Color = carColor;
             FuelTankSize = fuelTankSize;
-        } 
-
-        public Engine Engine { get; set; }
+        }
+        public double MaxKilometresRange => Engine.GetMaxKilometers(FuelTankSize);
+        public AbstractEngine Engine { get; set; }
         public VehicleType VehicleType { get; init; }
         public int ManufactureYear { get; init; }
         public string ModelName { get; init; }

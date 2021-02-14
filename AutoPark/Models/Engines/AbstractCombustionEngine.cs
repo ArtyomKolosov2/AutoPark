@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace AutoPark.Models.Engines
 {
-    public class CombustionEngine : Engine
+    public abstract class AbstractCombustionEngine : AbstractEngine
     {
         public double EngineVolume { get; set; }
         public double FuelConsumptionPerHundred { get; set; }
-        public CombustionEngine(string typeName, double taxCoeff)
+        public AbstractCombustionEngine(string typeName, double taxCoeff)
             :base(typeName, taxCoeff)
         {
 
         }
-        public double GetMaxKilometers(double fuelTankCapacity) => fuelTankCapacity * 100 / FuelConsumptionPerHundred;
+        public override double GetMaxKilometers(double fuelTankCapacity) => fuelTankCapacity * 100 / FuelConsumptionPerHundred;
     }
 }

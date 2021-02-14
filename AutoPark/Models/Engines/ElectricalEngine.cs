@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AutoPark.Models.Engines
 {
-    public class ElectricalEngine : Engine
+    public class ElectricalEngine : AbstractEngine
     {
         public double ElectricityConsumption { get; set; }
         public ElectricalEngine(double electricityConsumption, int engineCapacity) :
@@ -16,7 +16,7 @@ namespace AutoPark.Models.Engines
             ElectricityConsumption = electricityConsumption;
             EngineCapacity = engineCapacity;
         }
-        public double GetMaxKilometeres(double batterySize) => batterySize / ElectricityConsumption;
+        public override double GetMaxKilometers(double batterySize) => batterySize / ElectricityConsumption;
         
     }
 }

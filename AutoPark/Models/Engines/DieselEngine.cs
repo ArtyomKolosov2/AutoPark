@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AutoPark.Models.Engines
 {
-    public class DieselEngine : CombustionEngine
+    public class DieselEngine : AbstractCombustionEngine
     {
         public DieselEngine(
             double engineVolume,
