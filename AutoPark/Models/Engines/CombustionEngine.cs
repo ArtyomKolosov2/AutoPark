@@ -9,8 +9,8 @@ namespace AutoPark.Models.Engines
 {
     public class CombustionEngine : Engine
     {
-        public int EngineVolume { get; set; }
-        public int FuelConsumptionPerHundred { get; set; }
+        public double EngineVolume { get; set; }
+        public double FuelConsumptionPerHundred { get; set; }
         public CombustionEngine(string typeName, double taxCoeff)
             :base(typeName, taxCoeff)
         {

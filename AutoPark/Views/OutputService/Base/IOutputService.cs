@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace AutoPark.Views.OutputService.Base
 {
-    interface IOutputService
+    interface IOutputService<T> where T : class
     {
-        public void ShowVehiclesList<T>(IEnumerable<T> vehicles) where T : Vehicle;
+        public void ShowElementsList(IEnumerable<T> vehicles);
+        public void ShowSameElements(IEnumerable<T> vehicles);
     }
 }

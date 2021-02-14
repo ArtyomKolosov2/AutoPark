@@ -10,10 +10,11 @@ namespace AutoPark.Models.Engines
     public class ElectricalEngine : Engine
     {
         public double ElectricityConsumption { get; set; }
-        public ElectricalEngine(double electricityConsumption) :
-            base("Electrical", 0.1)
+        public ElectricalEngine(double electricityConsumption, int engineCapacity) :
+            base(EngineTypeConstants.ELECTRICAL, 0.1)
         {
             ElectricityConsumption = electricityConsumption;
+            EngineCapacity = engineCapacity;
         }
         public double GetMaxKilometeres(double batterySize) => batterySize / ElectricityConsumption;
         

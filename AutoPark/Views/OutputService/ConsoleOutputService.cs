@@ -8,9 +8,18 @@ using System.Threading.Tasks;
 
 namespace AutoPark.Views.OutputService
 {
-    public class ConsoleOutputService : IOutputService
+    public class ConsoleOutputService : IOutputService<Vehicle>
     {
-        public void ShowVehiclesList<T>(IEnumerable<T> vehicles) where T : Vehicle
+        public void ShowSameElements(IEnumerable<Vehicle> vehicles)
+        {
+            var duplicates = 
+                vehicles.GroupBy(car => car)
+                .Where(group => group.Count() > 1)
+                .SelectMany(group => group);
+            ShowElementsList(duplicates);
+        }
+
+        public void ShowElementsList(IEnumerable<Vehicle> vehicles)
         {
             foreach (var vehicle in vehicles)
             {
