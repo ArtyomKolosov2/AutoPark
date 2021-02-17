@@ -11,7 +11,7 @@ namespace AutoPark.Models.Engines
     {
         public double ElectricityConsumption { get; set; }
         public ElectricalEngine(double electricityConsumption, int engineCapacity) :
-            base(EngineTypeConstants.ELECTRICAL, 0.1)
+            base(EngineTypeConstants.ELECTRICAL, 0.1m)
         {
             ElectricityConsumption = electricityConsumption;
             EngineCapacity = engineCapacity;

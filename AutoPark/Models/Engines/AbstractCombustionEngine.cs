@@ -11,11 +11,11 @@ namespace AutoPark.Models.Engines
     {
         public double EngineVolume { get; set; }
         public double FuelConsumptionPerHundred { get; set; }
-        public AbstractCombustionEngine(string typeName, double taxCoeff)
+        protected AbstractCombustionEngine(string typeName, decimal taxCoeff)
             :base(typeName, taxCoeff)
         {
 
         }
-        public override double GetMaxKilometers(double fuelTankCapacity) => fuelTankCapacity * 100 / FuelConsumptionPerHundred;
+        public override double GetMaxKilometers(double fuelTankCapacity) => (fuelTankCapacity * 100) / FuelConsumptionPerHundred;
     }
 }

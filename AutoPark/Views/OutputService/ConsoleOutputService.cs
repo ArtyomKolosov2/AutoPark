@@ -8,23 +8,44 @@ using System.Threading.Tasks;
 
 namespace AutoPark.Views.OutputService
 {
-    public class ConsoleOutputService : IOutputService<Vehicle>
+    public class ConsoleOutputService : IOutputService
     {
-        public void ShowSameElements(IEnumerable<Vehicle> vehicles)
+        public void ShowSameVehicles(IEnumerable<Vehicle> elements)
         {
+            if (elements is null)
+            {
+                throw new ArgumentNullException(nameof(elements));
+            }
+
             var duplicates = 
-                vehicles.GroupBy(car => car)
+                elements.GroupBy(car => car)
                 .Where(group => group.Count() > 1)
                 .SelectMany(group => group);
-            ShowElementsList(duplicates);
+
+            ShowVehicleList(duplicates);
         }
 
-        public void ShowElementsList(IEnumerable<Vehicle> vehicles)
+        public void ShowVehicleList(IEnumerable<Vehicle> elements)
         {
-            foreach (var vehicle in vehicles)
+            if (elements is null)
+            {
+                throw new ArgumentNullException(nameof(elements));
+            }
+
+            foreach (var vehicle in elements)
             {
                 Console.WriteLine(vehicle);
             }
+        }
+
+        public void ShowStringWithLineBreak(string message)
+        {
+            Console.WriteLine(message);
+        }
+
+        public void ShowStringWithoutLineBreak(string message)
+        {
+            Console.Write(message);
         }
     }
 }

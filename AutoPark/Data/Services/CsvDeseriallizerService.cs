@@ -40,7 +40,7 @@ namespace AutoPark.Data.Services
                 var fields = csvString.Split(CSV_SEPARATOR, StringSplitOptions.TrimEntries);
                 var vehicleId = int.Parse(fields[0]);
                 var orderDate = DateTime.Parse(fields[1]);
-                var cost = double.Parse(fields[2]);
+                var cost = decimal.Parse(fields[2]);
                 return new Rent(vehicleId, orderDate, cost);
             }
             throw new ArgumentNullException(nameof(csvString), "Csv string was null!");
@@ -52,7 +52,7 @@ namespace AutoPark.Data.Services
                 var fields = csvString.Split(CSV_SEPARATOR, StringSplitOptions.TrimEntries);
                 var id = int.Parse(fields[0]);
                 var vehicleTypeName = fields[1];
-                var taxCoeff = double.Parse(fields[2]);
+                var taxCoeff = decimal.Parse(fields[2]);
                 return new VehicleType(id, vehicleTypeName, taxCoeff);
             }
             throw new ArgumentNullException(nameof(csvString), "Csv string was null!");

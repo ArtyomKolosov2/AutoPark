@@ -8,11 +8,11 @@ namespace AutoPark.Models.Vehicles
     {
         public int Id { get; set; }
         public string TypeName { get; set; }
-        public double TaxCoeff { get; set; }
+        public decimal TaxCoeff { get; set; }
         public VehicleType()
         {
         }
-        public VehicleType(int id, string typeName, double taxCoeff)
+        public VehicleType(int id, string typeName, decimal taxCoeff)
         {
             Id = id;
             TypeName = typeName;

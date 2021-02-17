@@ -17,11 +17,11 @@ using System.Linq;
 
 namespace AutoPark
 {
-    class Program
+    static class Program
     {
         private static void SetUpLocale()
         {
-            var customCulture = new CultureInfo("ru-Ru");
+            var customCulture = new CultureInfo("en-US");
             customCulture.NumberFormat.NumberDecimalSeparator = ".";
 
             CultureInfo.DefaultThreadCurrentCulture = customCulture;
@@ -29,10 +29,10 @@ namespace AutoPark
         }
         private static List<VehicleType> VehiclesTypesDefaultList => new List<VehicleType>()
         {
-            new VehicleType(1, "Bus", 1.2),
-            new VehicleType(2, "Car", 1),
-            new VehicleType(3, "Rink", 1.5),
-            new VehicleType(4, "Tractor", 1.2),
+            new VehicleType(1, "Bus", 1.2m),
+            new VehicleType(2, "Car", 1m),
+            new VehicleType(3, "Rink", 1.5m),
+            new VehicleType(4, "Tractor", 1.2m),
         };
 
         private static List<Vehicle> VehiclesDefaultList => new List<Vehicle>()
@@ -48,46 +48,23 @@ namespace AutoPark
         static void Main(string[] args)
         {
             SetUpLocale();
-            /*IOutputService<Vehicle> outputService = new ConsoleOutputService();
-            var carTypeList = VehiclesTypesDefaultList;
-            foreach (var carType in carTypeList)
-            {
-                carType.Display();
-            }
-            carTypeList.Last().TaxCoeff = 1.3;
-            var maxCoef = carTypeList.Max(car => car.TaxCoeff);
-            Console.WriteLine(maxCoef);
-            foreach (var carType in carTypeList)
-            {
-                Console.WriteLine(carType);
-            }
-
-            var carList = VehiclesDefaultList;
-            outputService.ShowElementsList(carList);
-            carList.Sort();
-            outputService.ShowElementsList(carList);
-            Console.WriteLine(
-                $"Max milleage = {carList.Max(car => car.Mileage)}\n" +
-                $"Min milleage = {carList.Min(car => car.Mileage)}");
-   
-            outputService.ShowSameElements(carList);
-            var maxKilometresCar = carList.Aggregate((a, b) => a.MaxKilometresRange > b.MaxKilometresRange ? a : b);
-            Console.WriteLine(
-                $"Max kilometres car name: {maxKilometresCar} \n" +
-                $"Km: {maxKilometresCar.MaxKilometresRange:0.00}");*/
+            IOutputService outputService = new ConsoleOutputService();
 
             var listOfControllers = new List<IController>()
             {
-                new CollectionController(new CollectionContext())
+                new ClassesController(VehiclesTypesDefaultList, outputService),
+                new InterfacesController(VehiclesTypesDefaultList, VehiclesDefaultList, outputService),
+                new InheritanceController(VehiclesDefaultList, outputService),
+                new AbstractionController(VehiclesDefaultList, outputService),
+                new CollectionController(new CollectionContext(), outputService)
             };
             for (var index = 0; index < listOfControllers.Count; index++)
             {
-                Console.WriteLine($"Level: {index + 1}".Center(20, '='));
+                outputService.ShowStringWithLineBreak($"Level: {index + 1}".Center(40, '='));
 
                 var controller = listOfControllers[index];
                 controller.RunController();
             }
-
         }
     }
 }

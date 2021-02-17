@@ -5,6 +5,7 @@ using AutoPark.Models.Base;
 using AutoPark.Models.Engines;
 using AutoPark.Models.Other;
 using AutoPark.Models.Vehicles;
+using AutoPark.Views.OutputService.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,9 +17,11 @@ namespace AutoPark.Controllers
     public class CollectionController : IController
     {
         private readonly CollectionContext _collectionContext;
-        public CollectionController(CollectionContext collectionContext)
+        private readonly IOutputService _outputService;
+        public CollectionController(CollectionContext collectionContext, IOutputService outputService)
         {
             _collectionContext = collectionContext;
+            _outputService = outputService;
         }
 
         public void RunController()
@@ -26,7 +29,7 @@ namespace AutoPark.Controllers
             var rents = _collectionContext.LoadRents();
             var vehicleTypes = _collectionContext.LoadTypes();
             var vehicles = _collectionContext.LoadVehicles(rents, vehicleTypes);
-            var collections = new Collections(vehicleTypes, vehicles);
+            var collections = new Collections(vehicleTypes, vehicles, _outputService);
             collections.Print();
             collections.Vehicles.Add
              (
@@ -34,7 +37,7 @@ namespace AutoPark.Controllers
                 {
                     Rents = new List<Rent> 
                     { 
-                        new Rent(7, DateTime.Now, 13.5)
+                        new Rent(7, DateTime.Now, 13.5m)
                     },
                 }
              );

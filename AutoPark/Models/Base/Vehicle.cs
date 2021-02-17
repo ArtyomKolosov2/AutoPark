@@ -9,7 +9,7 @@ namespace AutoPark.Models.Base
 {
     public class Vehicle : IComparable<Vehicle>, IEquatable<Vehicle>
     {
-        private const double TaxWeightMultiplier = 0.0013;
+        private const decimal TaxWeightMultiplier = 0.0013m;
         public Vehicle()
         {
 
@@ -43,15 +43,15 @@ namespace AutoPark.Models.Base
         public VehicleType VehicleType { get; init; }
         public int ManufactureYear { get; init; }
         public string ModelName { get; init; }
-        public int FuelTankSize { get; set; }
+        public int FuelTankSize { get; set; } = 50;
         public string RegistrationNumber { get; set; }
         public int Weight { get; set; }
         public int Mileage { get; set; }
         public Colors Color { get; set; }
         
-        public double TaxPerMonth => (Weight * TaxWeightMultiplier) + (VehicleType.TaxCoeff * Engine.TaxCoeff * 30) + 5;
-        public double TotalIncome => Rents.Sum(rent => rent.Cost);
-        public double TotalProfit => TotalIncome - TaxPerMonth;
+        public decimal TaxPerMonth => (Weight * TaxWeightMultiplier) + (VehicleType.TaxCoeff * Engine.TaxCoeff * 30) + 5;
+        public decimal TotalIncome => Rents.Sum(rent => rent.Cost);
+        public decimal TotalProfit => TotalIncome - TaxPerMonth;
         public override string ToString() => $"{ModelName},{RegistrationNumber},{Weight},{Mileage},{Color},{TaxPerMonth:0.00}";
 
         public int CompareTo(Vehicle other)

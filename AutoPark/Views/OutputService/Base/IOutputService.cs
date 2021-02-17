@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 
 namespace AutoPark.Views.OutputService.Base
 {
-    interface IOutputService<T> where T : class
+    public interface IOutputService
     {
-        public void ShowElementsList(IEnumerable<T> vehicles);
-        public void ShowSameElements(IEnumerable<T> vehicles);
+        public void ShowStringWithLineBreak(string message);
+        public void ShowStringWithoutLineBreak(string message);
+        public void ShowVehicleList(IEnumerable<Vehicle> elements);
+        public void ShowSameVehicles(IEnumerable<Vehicle> elements);
     }
 }

@@ -31,7 +31,6 @@ namespace AutoPark.Data
             VehicleTypeFilePath = vehicleTypeFilePath;
             RentFilePath = rentFilePath;
         }
-
         public List<Rent> LoadRents()
         {
             var csvStrings = CsvDeseriallizerService.GetCsvStringsFromFile(RentFilePath);
@@ -42,7 +41,6 @@ namespace AutoPark.Data
             }
             return listOfRents;
         }
-
         public List<VehicleType> LoadTypes()
         {
             var csvStrings = CsvDeseriallizerService.GetCsvStringsFromFile(VehicleTypeFilePath);
@@ -64,7 +62,5 @@ namespace AutoPark.Data
             }
             return listOfVehicles;
         }
-
-
     }
 }

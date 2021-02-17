@@ -2,6 +2,8 @@
 using AutoPark.Models.Engines;
 using AutoPark.Models.Other;
 using AutoPark.Models.Vehicles;
+using AutoPark.Views.OutputService;
+using AutoPark.Views.OutputService.Base;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,14 +17,20 @@ namespace AutoPark.Data.UserCollection
     {
         public List<VehicleType> VehicleTypes { get; set; } = new();
         public List<Vehicle> Vehicles { get; set; } = new();
+        private readonly IOutputService _outputService;
         public Collections()
         {
-
+            _outputService = new ConsoleOutputService();
         }
-        public Collections(List<VehicleType> vehicleTypes, List<Vehicle> vehicles)
+        public Collections(IOutputService outputService)
+        {
+            _outputService = outputService;
+        }
+        public Collections(List<VehicleType> vehicleTypes, List<Vehicle> vehicles, IOutputService outputService)
         {
             VehicleTypes = vehicleTypes;
             Vehicles = vehicles;
+            _outputService = outputService;
         }
         
         private bool IsVehicleIndexValid(int index) => index >= 0 && index < Vehicles.Count;
@@ -41,12 +49,12 @@ namespace AutoPark.Data.UserCollection
             }
             return returnIndex;
         }
-        public double SumTotalProfit() => Vehicles.Sum(vehicle => vehicle.TotalProfit);
+        public decimal SumTotalProfit() => Vehicles.Sum(vehicle => vehicle.TotalProfit);
         public void Print()
         {
             foreach (var vehicle in Vehicles)
             {
-                Console.WriteLine(
+                _outputService.ShowStringWithLineBreak(
                     $"{vehicle.Id,-5}" +
                     $"{vehicle.VehicleType.TypeName,-10}" +
                     $"{vehicle.ModelName,-25}" +
