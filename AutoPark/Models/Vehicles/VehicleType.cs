@@ -6,13 +6,15 @@ namespace AutoPark.Models.Vehicles
 {
     public class VehicleType
     {
+        public int Id { get; set; }
         public string TypeName { get; set; }
         public double TaxCoeff { get; set; }
         public VehicleType()
         {
         }
-        public VehicleType(string typeName, double taxCoeff)
+        public VehicleType(int id, string typeName, double taxCoeff)
         {
+            Id = id;
             TypeName = typeName;
             TaxCoeff = taxCoeff;
         }

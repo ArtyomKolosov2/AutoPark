@@ -1,6 +1,9 @@
-﻿using AutoPark.Models.Vehicles;
+﻿using AutoPark.Models.Other;
+using AutoPark.Models.Vehicles;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 
 namespace AutoPark.Models.Base
 {
@@ -13,6 +16,7 @@ namespace AutoPark.Models.Base
         }
 
         public Vehicle(
+            int id,
             VehicleType vehicleType, 
             AbstractEngine engine,
             string modelName, 
@@ -20,9 +24,9 @@ namespace AutoPark.Models.Base
             int weight,
             int manufactureYear,
             int mileage,
-            Color carColor,
-            int fuelTankSize)
+            Colors carColor)
         {
+            Id = id;
             VehicleType = vehicleType;
             Engine = engine;
             ModelName = modelName;
@@ -31,8 +35,9 @@ namespace AutoPark.Models.Base
             ManufactureYear = manufactureYear;
             Mileage = mileage;
             Color = carColor;
-            FuelTankSize = fuelTankSize;
         }
+        public int Id { get; set; }
+        public List<Rent> Rents { get; set; }
         public double MaxKilometresRange => Engine.GetMaxKilometers(FuelTankSize);
         public AbstractEngine Engine { get; set; }
         public VehicleType VehicleType { get; init; }
@@ -42,16 +47,18 @@ namespace AutoPark.Models.Base
         public string RegistrationNumber { get; set; }
         public int Weight { get; set; }
         public int Mileage { get; set; }
-        public Color Color { get; set; }
+        public Colors Color { get; set; }
         
         public double TaxPerMonth => (Weight * TaxWeightMultiplier) + (VehicleType.TaxCoeff * Engine.TaxCoeff * 30) + 5;
+        public double TotalIncome => Rents.Sum(rent => rent.Cost);
+        public double TotalProfit => TotalIncome - TaxPerMonth;
         public override string ToString() => $"{ModelName},{RegistrationNumber},{Weight},{Mileage},{Color},{TaxPerMonth:0.00}";
 
         public int CompareTo(Vehicle other)
         {
             if (other is null)
             {
-                throw new ArgumentNullException(nameof(other), "Other class can't be null!");
+                throw new ArgumentNullException(nameof(other), "Other vehicle class can't be null!");
             }
 
             return TaxPerMonth.CompareTo(other.TaxPerMonth);
