@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace AutoPark.Data.UserCollections
 {
+    /// <summary>
+    /// My realization stack
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class UserStack<T> : IEnumerable<T>
     {
         private T[] _stackArray;

@@ -14,16 +14,27 @@ using System.Threading.Tasks;
 
 namespace AutoPark.Controllers
 {
+    /// <summary>
+    /// Level 5
+    /// </summary>
     public class CollectionController : IController
     {
         private readonly CollectionContext _collectionContext;
         private readonly IOutputService _outputService;
+
+        /// <summary>
+        /// Setting up a controller
+        /// </summary>
+        /// <param name="collectionContext"></param>
+        /// <param name="outputService"></param>
         public CollectionController(CollectionContext collectionContext, IOutputService outputService)
         {
             _collectionContext = collectionContext;
             _outputService = outputService;
         }
-
+        /// <summary>
+        /// Run controller
+        /// </summary>
         public void RunController()
         {
             var rents = _collectionContext.LoadRents();

@@ -19,6 +19,9 @@ namespace AutoPark
 {
     static class Program
     {
+        /// <summary>
+        /// Setting up culture for project
+        /// </summary>
         private static void SetUpLocale()
         {
             var customCulture = new CultureInfo("en-US");
@@ -27,6 +30,9 @@ namespace AutoPark
             CultureInfo.DefaultThreadCurrentCulture = customCulture;
             CultureInfo.DefaultThreadCurrentUICulture = customCulture;
         }
+        /// <summary>
+        /// Default list of vehicle types
+        /// </summary>
         private static List<VehicleType> VehiclesTypesDefaultList => new List<VehicleType>()
         {
             new VehicleType(1, "Bus", 1.2m),
@@ -35,6 +41,9 @@ namespace AutoPark
             new VehicleType(4, "Tractor", 1.2m),
         };
 
+        /// <summary>
+        /// Default list of vehicles
+        /// </summary>
         private static List<Vehicle> VehiclesDefaultList => new List<Vehicle>()
         {
             new(1, VehiclesTypesDefaultList[0], new GasolineEngine(2, 8.1, 75), "Volkswagen Crafter", "5427 AX-7", 2020, 2015, 376000, Colors.Blue),
@@ -45,6 +54,11 @@ namespace AutoPark
             new(6, VehiclesTypesDefaultList[2], new DieselEngine(3.2, 25, 20), "Hamm HD 12 VV", null, 3000, 2016, 122, Colors.Yellow),
             new(7, VehiclesTypesDefaultList[3], new DieselEngine(4.75, 20.1, 135), "МТЗ Беларус-1025.4", "1145 AB-7", 1200, 2020, 109, Colors.Red),
          };
+
+        /// <summary>
+        /// Entry point of program
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
             SetUpLocale();

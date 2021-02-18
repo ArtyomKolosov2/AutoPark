@@ -6,7 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace AutoPark.Data.UserCollections
-{
+{ 
+    /// <summary>
+    /// My realization of queue
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class UserQueue<T> : IEnumerable<T>
     {
         private T[] _queueArray;

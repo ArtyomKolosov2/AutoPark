@@ -12,8 +12,14 @@ using System.Threading.Tasks;
 
 namespace AutoPark.Data
 {
+    /// <summary>
+    /// Collection context, that helps to work properly with Csv Deseriallizer
+    /// </summary>
     public class CollectionContext
     {
+        /// <summary>
+        /// User collection
+        /// </summary>
         public Collections UserCollection { get; set; }
         public string VehicleFilePath { get; set; }
         public string VehicleTypeFilePath { get; set; }

@@ -11,15 +11,26 @@ using System.Threading.Tasks;
 
 namespace AutoPark.Controllers
 {
+    /// <summary>
+    /// Level 3
+    /// </summary>
     public class InheritanceController : IController
     {
         private readonly List<Vehicle> _vehicles;
         private readonly IOutputService _outputService;
+        /// <summary>
+        /// Setting up a controller
+        /// </summary>
+        /// <param name="vehicles"></param>
+        /// <param name="outputService"></param>
         public InheritanceController(List<Vehicle> vehicles, IOutputService outputService)
         {
             _vehicles = vehicles;
             _outputService = outputService;
         }
+        /// <summary>
+        /// Run controller
+        /// </summary>
         public void RunController()
         {
             _outputService.ShowVehicleEnumerable(_vehicles);

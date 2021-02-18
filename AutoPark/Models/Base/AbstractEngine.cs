@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace AutoPark.Models.Base
 {
+    /// <summary>
+    /// Base class for engines
+    /// </summary>
     public abstract class AbstractEngine
     {
         public string Type { get; set; }

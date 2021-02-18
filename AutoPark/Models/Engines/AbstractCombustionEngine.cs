@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace AutoPark.Models.Engines
 {
+    /// <summary>
+    /// Combustion engine, inherited form abstraction engine
+    /// </summary>
     public abstract class AbstractCombustionEngine : AbstractEngine
     {
         public double EngineVolume { get; set; }

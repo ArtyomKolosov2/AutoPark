@@ -11,11 +11,19 @@ using System.Threading.Tasks;
 
 namespace AutoPark.Data.Services
 {
+    /// <summary>
+    /// CSV format Deseriallizer
+    /// </summary>
     public static class CsvDeseriallizerService
     {
         private const string CSV_EXTENSION = ".csv";
         private const char CSV_SEPARATOR = ',';
         private const char CSV_NEWLINE = '\n';
+        /// <summary>
+        /// Gets csv strings from file. Uses CSV_NEWLINE constant ('\n')
+        /// </summary>
+        /// <param name="inFile"></param>
+        /// <returns>List of csv strings</returns>
         public static List<string> GetCsvStringsFromFile(string inFile)
         {
             if (File.Exists(inFile) && new FileInfo(inFile).Extension == CSV_EXTENSION)
@@ -33,6 +41,11 @@ namespace AutoPark.Data.Services
             }
             throw new ArgumentException("Invalid csv file path!");
         }
+        /// <summary>
+        /// Creates Rent object from csv string
+        /// </summary>
+        /// <param name="csvString"></param>
+        /// <returns>Parsed rent object</returns>
         public static Rent CreateRent(string csvString)
         {
             if (csvString is not null)
@@ -45,11 +58,20 @@ namespace AutoPark.Data.Services
             }
             throw new ArgumentNullException(nameof(csvString), "Csv string was null!");
         }
+        /// <summary>
+        /// Deserialize of orders string
+        /// </summary>
+        /// <param name="csvLine"></param>
+        /// <returns>List of orders</returns>
         public static List<string> DeserializeOrders(string csvLine)
         {
             return csvLine.Split(CSV_SEPARATOR, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries).ToList();
         }
-
+        /// <summary>
+        /// Creates VehicleType object from csv string
+        /// </summary>
+        /// <param name="csvString"></param>
+        /// <returns>Parsed vehicle type</returns>
         public static VehicleType CreateType(string csvString)
         {
             if (csvString is not null)
@@ -62,6 +84,13 @@ namespace AutoPark.Data.Services
             }
             throw new ArgumentNullException(nameof(csvString), "Csv string was null!");
         }
+        /// <summary>
+        /// Creates Vehicle object from csv string
+        /// </summary>
+        /// <param name="csvString">source string</param>
+        /// <param name="rents">list of rent for map data</param>
+        /// <param name="types">list of vehicle types for map data</param>
+        /// <returns>Parsed vehicle object</returns>
         public static Vehicle CreateVehicle(string csvString, IEnumerable<Rent> rents, IEnumerable<VehicleType> types)
         {
             if (csvString is not null)

@@ -7,6 +7,9 @@ using System.Linq;
 
 namespace AutoPark.Models.Base
 {
+    /// <summary>
+    /// Class, that represents main specifications of vehicles
+    /// </summary>
     public class Vehicle : IComparable<Vehicle>, IEquatable<Vehicle>
     {
         private const decimal TaxWeightMultiplier = 0.0013m;

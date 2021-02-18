@@ -10,15 +10,26 @@ using System.Threading.Tasks;
 
 namespace AutoPark.Controllers
 {
+    /// <summary>
+    /// Level 1 controller
+    /// </summary>
     public class ClassesController : IController
     {
         private readonly List<VehicleType> _types;
         private readonly IOutputService _outputService;
+        /// <summary>
+        /// Setting up a controller with default types and output service
+        /// </summary>
+        /// <param name="types"></param>
+        /// <param name="outputService"></param>
         public ClassesController(List<VehicleType> types, IOutputService outputService)
         {
             _types = types;
             _outputService = outputService;
         }
+        /// <summary>
+        /// Run controller
+        /// </summary>
         public void RunController()
         {
             foreach (var carType in _types)

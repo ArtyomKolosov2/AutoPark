@@ -4,6 +4,9 @@ using System.Text;
 
 namespace AutoPark.Models.Vehicles
 {
+    /// <summary>
+    /// Vehicle types of cars
+    /// </summary>
     public class VehicleType
     {
         public int Id { get; set; }

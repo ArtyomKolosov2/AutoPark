@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace AutoPark.Models.Base
 {
+    /// <summary>
+    /// Enum with main colors
+    /// </summary>
     public enum Colors
     {
         White,

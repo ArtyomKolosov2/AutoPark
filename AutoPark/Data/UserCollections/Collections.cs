@@ -13,9 +13,18 @@ using System.Threading.Tasks;
 
 namespace AutoPark.Data.UserCollection
 {
+    /// <summary>
+    /// Collection to store VehicleTypes and Vehicles
+    /// </summary>
     public class Collections
     {
+        /// <summary>
+        /// List of vehicles types
+        /// </summary>
         public List<VehicleType> VehicleTypes { get; set; } = new();
+        /// <summary>
+        /// List of vehicles
+        /// </summary>
         public List<Vehicle> Vehicles { get; set; } = new();
         private readonly IOutputService _outputService;
         public Collections()
@@ -47,6 +56,10 @@ namespace AutoPark.Data.UserCollection
             }
             return returnIndex;
         }
+        /// <summary>
+        /// Counts total profits from cars rent
+        /// </summary>
+        /// <returns></returns>
         public decimal SumTotalProfit() => Vehicles.Sum(vehicle => vehicle.TotalProfit);
         public void Print()
         {

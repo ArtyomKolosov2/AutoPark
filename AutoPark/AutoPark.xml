@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AutoPark</name>
+    </assembly>
+    <members>
+        <member name="M:AutoPark.Program.SetUpLocale">
+            <summary>
+            Setting up culture for project
+            </summary>
+        </member>
+        <member name="P:AutoPark.Program.VehiclesTypesDefaultList">
+            <summary>
+            Default list of vehicle types
+            </summary>
+        </member>
+        <member name="P:AutoPark.Program.VehiclesDefaultList">
+            <summary>
+            Default list of vehicles
+            </summary>
+        </member>
+        <member name="M:AutoPark.Program.Main(System.String[])">
+            <summary>
+            Entry point of program
+            </summary>
+            <param name="args"></param>
+        </member>
+    </members>
+</doc>

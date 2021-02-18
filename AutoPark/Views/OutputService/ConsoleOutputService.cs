@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace AutoPark.Views.OutputService
 {
+    /// <summary>
+    /// Implementation of output service
+    /// </summary>
     public class ConsoleOutputService : IOutputService
     {
         public void ShowSameVehicles(IEnumerable<Vehicle> elements)
@@ -37,12 +40,10 @@ namespace AutoPark.Views.OutputService
                 Console.WriteLine(vehicle);
             }
         }
-
         public void ShowStringWithLineBreak(string message)
         {
             Console.WriteLine(message);
         }
-
         public void ShowStringWithoutLineBreak(string message)
         {
             Console.Write(message);

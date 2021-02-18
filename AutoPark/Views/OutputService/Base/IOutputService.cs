@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace AutoPark.Views.OutputService.Base
 {
+    /// <summary>
+    /// Interface for output to user
+    /// </summary>
     public interface IOutputService
     {
         public void ShowStringWithLineBreak(string message);
