@@ -45,6 +45,11 @@ namespace AutoPark.Data.Services
             }
             throw new ArgumentNullException(nameof(csvString), "Csv string was null!");
         }
+        public static List<string> DeserializeOrders(string csvLine)
+        {
+            return csvLine.Split(CSV_SEPARATOR, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries).ToList();
+        }
+
         public static VehicleType CreateType(string csvString)
         {
             if (csvString is not null)

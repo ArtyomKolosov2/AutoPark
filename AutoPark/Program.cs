@@ -58,7 +58,8 @@ namespace AutoPark
                 new AbstractionController(VehiclesDefaultList, outputService),
                 new CollectionController(context, outputService),
                 new QueueController(context, outputService),
-                new StackController(context, outputService)
+                new StackController(context, outputService),
+                new DictionaryController(@"Data\Files\orders.csv", outputService)
             };
             for (var index = 0; index < listOfControllers.Count; index++)
             {
