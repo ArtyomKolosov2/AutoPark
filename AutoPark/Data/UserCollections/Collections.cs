@@ -32,9 +32,7 @@ namespace AutoPark.Data.UserCollection
             Vehicles = vehicles;
             _outputService = outputService;
         }
-        
         private bool IsVehicleIndexValid(int index) => index >= 0 && index < Vehicles.Count;
-        
         public void Insert(int index, Vehicle vehicle)
         {
             Vehicles.Insert(index, vehicle);
@@ -72,7 +70,6 @@ namespace AutoPark.Data.UserCollection
         {
             Vehicles.Sort(comparer);
         }
-
         public void Sort()
         {
             Vehicles.Sort(new VehicleComparer());

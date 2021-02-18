@@ -37,9 +37,9 @@ namespace AutoPark.Controllers
             }
 
             var carList = _vehicles;
-            _outputService.ShowVehicleList(carList);
+            _outputService.ShowVehicleEnumerable(carList);
             carList.Sort();
-            _outputService.ShowVehicleList(carList);
+            _outputService.ShowVehicleEnumerable(carList);
             _outputService.ShowStringWithLineBreak(
                 $"Max milleage = {carList.Max(car => car.Mileage)}\n" +
                 $"Min milleage = {carList.Min(car => car.Mileage)}");

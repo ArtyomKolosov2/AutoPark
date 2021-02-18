@@ -1,4 +1,5 @@
 ﻿using AutoPark.Data.Services;
+using AutoPark.Data.UserCollection;
 using AutoPark.Models.Base;
 using AutoPark.Models.Other;
 using AutoPark.Models.Vehicles;
@@ -13,6 +14,7 @@ namespace AutoPark.Data
 {
     public class CollectionContext
     {
+        public Collections UserCollection { get; set; }
         public string VehicleFilePath { get; set; }
         public string VehicleTypeFilePath { get; set; }
         public string RentFilePath { get; set; }

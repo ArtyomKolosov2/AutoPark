@@ -29,11 +29,11 @@ namespace AutoPark.Controllers
             var rents = _collectionContext.LoadRents();
             var vehicleTypes = _collectionContext.LoadTypes();
             var vehicles = _collectionContext.LoadVehicles(rents, vehicleTypes);
-            var collections = new Collections(vehicleTypes, vehicles, _outputService);
-            collections.Print();
-            collections.Vehicles.Add
+            _collectionContext.UserCollection = new Collections(vehicleTypes, vehicles, _outputService);
+            _collectionContext.UserCollection.Print();
+            _collectionContext.UserCollection.Vehicles.Add
              (
-                new(7, collections.VehicleTypes[3] , new DieselEngine(4.75, 20.1, 135), "МТЗ 40", "2268 AB-2", 1200, 2020, 109, Colors.Blue)
+                new(7, _collectionContext.UserCollection.VehicleTypes[3] , new DieselEngine(4.75, 20.1, 135), "МТЗ 40", "2268 AB-2", 1200, 2020, 109, Colors.Blue)
                 {
                     Rents = new List<Rent> 
                     { 
@@ -41,11 +41,11 @@ namespace AutoPark.Controllers
                     },
                 }
              );
-            collections.Delete(1);
-            collections.Delete(4);
-            collections.Print();
-            collections.Sort();
-            collections.Print();
+            _collectionContext.UserCollection.Delete(1);
+            _collectionContext.UserCollection.Delete(4);
+            _collectionContext.UserCollection.Print();
+            _collectionContext.UserCollection.Sort();
+            _collectionContext.UserCollection.Print();
         }
     }
 }

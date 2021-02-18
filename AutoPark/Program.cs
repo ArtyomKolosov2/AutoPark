@@ -49,14 +49,16 @@ namespace AutoPark
         {
             SetUpLocale();
             IOutputService outputService = new ConsoleOutputService();
-
+            var context = new CollectionContext();
             var listOfControllers = new List<IController>()
             {
                 new ClassesController(VehiclesTypesDefaultList, outputService),
                 new InterfacesController(VehiclesTypesDefaultList, VehiclesDefaultList, outputService),
                 new InheritanceController(VehiclesDefaultList, outputService),
                 new AbstractionController(VehiclesDefaultList, outputService),
-                new CollectionController(new CollectionContext(), outputService)
+                new CollectionController(context, outputService),
+                new QueueController(context, outputService),
+                new StackController(context, outputService)
             };
             for (var index = 0; index < listOfControllers.Count; index++)
             {

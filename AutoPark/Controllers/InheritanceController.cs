@@ -22,7 +22,7 @@ namespace AutoPark.Controllers
         }
         public void RunController()
         {
-            _outputService.ShowVehicleList(_vehicles);
+            _outputService.ShowVehicleEnumerable(_vehicles);
             _outputService.ShowStringWithLineBreak("Same cars".Center(30, '-'));
             _outputService.ShowSameVehicles(_vehicles);
         }

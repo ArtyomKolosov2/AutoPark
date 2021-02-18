@@ -22,10 +22,10 @@ namespace AutoPark.Views.OutputService
                 .Where(group => group.Count() > 1)
                 .SelectMany(group => group);
 
-            ShowVehicleList(duplicates);
+            ShowVehicleEnumerable(duplicates);
         }
 
-        public void ShowVehicleList(IEnumerable<Vehicle> elements)
+        public void ShowVehicleEnumerable(IEnumerable<Vehicle> elements)
         {
             if (elements is null)
             {

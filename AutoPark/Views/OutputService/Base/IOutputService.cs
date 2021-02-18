@@ -11,7 +11,7 @@ namespace AutoPark.Views.OutputService.Base
     {
         public void ShowStringWithLineBreak(string message);
         public void ShowStringWithoutLineBreak(string message);
-        public void ShowVehicleList(IEnumerable<Vehicle> elements);
+        public void ShowVehicleEnumerable(IEnumerable<Vehicle> elements);
         public void ShowSameVehicles(IEnumerable<Vehicle> elements);
     }
 }
