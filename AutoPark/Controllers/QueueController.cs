@@ -35,6 +35,7 @@ namespace AutoPark.Controllers
         {
             var queue = new UserQueue<Vehicle>(_context.UserCollection.Vehicles);
             _outputService.ShowVehicleEnumerable(queue);
+
             var counter = 1;
             foreach (var vehicle in queue)
             {

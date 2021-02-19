@@ -64,6 +64,7 @@ namespace AutoPark
             SetUpLocale();
             IOutputService outputService = new ConsoleOutputService();
             var context = new CollectionContext();
+
             var listOfControllers = new List<IController>()
             {
                 new ClassesController(VehiclesTypesDefaultList, outputService),
@@ -75,6 +76,7 @@ namespace AutoPark
                 new StackController(context, outputService),
                 new DictionaryController(@"Data\Files\orders.csv", outputService)
             };
+
             for (var index = 0; index < listOfControllers.Count; index++)
             {
                 outputService.ShowStringWithLineBreak($"Level: {index + 1}".Center(40, '='));

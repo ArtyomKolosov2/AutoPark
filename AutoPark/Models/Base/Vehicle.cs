@@ -13,6 +13,7 @@ namespace AutoPark.Models.Base
     public class Vehicle : IComparable<Vehicle>, IEquatable<Vehicle>
     {
         private const decimal TaxWeightMultiplier = 0.0013m;
+
         public Vehicle()
         {
 
@@ -39,6 +40,7 @@ namespace AutoPark.Models.Base
             Mileage = mileage;
             Color = carColor;
         }
+
         public int Id { get; set; }
         public List<Rent> Rents { get; set; }
         public double MaxKilometresRange => Engine.GetMaxKilometers(FuelTankSize);
@@ -66,19 +68,24 @@ namespace AutoPark.Models.Base
 
             return TaxPerMonth.CompareTo(other.TaxPerMonth);
         }
+
         public override int GetHashCode()
         {
             return HashCode.Combine(VehicleType.TypeName, ModelName);
         }
+
         public override bool Equals(object obj)
         {
             var result = false;
+
             if (obj is Vehicle other)
             {
                 result = Equals(other);
             }
+
             return result;
         }
+
         public bool Equals(Vehicle other)
         {
             if (other is null)

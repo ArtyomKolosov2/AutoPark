@@ -17,14 +17,17 @@ namespace AutoPark.Data.UserCollections
         private const int STANDART_SIZE = 16;
         private int _index;
         public int Count => _index;
+
         private void DoubleArraySize()
         {
             Array.Resize(ref _stackArray, _stackArray.Length * 2);
         }
+
         public UserStack()
         {
             _stackArray = new T[STANDART_SIZE];
         }
+
         public UserStack(int count)
         {
             if (count < 0)
@@ -33,6 +36,7 @@ namespace AutoPark.Data.UserCollections
             }
             _stackArray = new T[count];
         }
+
         public UserStack(IEnumerable<T> source)
         {
             if (source is null)
@@ -56,6 +60,7 @@ namespace AutoPark.Data.UserCollections
             }
         }
         public bool Contains(T data) => _stackArray.Contains(data);
+
         public T Pop()
         {
             if (_index <= 0)
@@ -69,6 +74,7 @@ namespace AutoPark.Data.UserCollections
         }
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+
         public IEnumerator<T> GetEnumerator()
         {
             var currentElementIndex = 0;

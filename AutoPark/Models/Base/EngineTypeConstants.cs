@@ -12,8 +12,8 @@ namespace AutoPark.Models.Base
     /// </summary>
     public static class EngineTypeConstants
     {
-        public const string DIESEL = "Diesel";
-        public const string ELECTRICAL = "Electrical";
-        public const string GASOLINE = "Gasoline";
+        public const string Diesel = "Diesel";
+        public const string Electrical = "Electrical";
+        public const string Gasoline = "Gasoline";
     }
 }

@@ -40,10 +40,12 @@ namespace AutoPark.Views.OutputService
                 Console.WriteLine(vehicle);
             }
         }
+
         public void ShowStringWithLineBreak(string message)
         {
             Console.WriteLine(message);
         }
+
         public void ShowStringWithoutLineBreak(string message)
         {
             Console.Write(message);

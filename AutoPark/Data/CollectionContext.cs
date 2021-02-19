@@ -21,15 +21,20 @@ namespace AutoPark.Data
         /// User collection
         /// </summary>
         public Collections UserCollection { get; set; }
+
         public string VehicleFilePath { get; set; }
+
         public string VehicleTypeFilePath { get; set; }
+
         public string RentFilePath { get; set; }
+
         public CollectionContext()
         {
             VehicleFilePath = @"Data\Files\vehicles.csv";
             VehicleTypeFilePath = @"Data\Files\types.csv";
             RentFilePath = @"Data\Files\rents.csv";
         }
+
         public CollectionContext(
             string vehicleFilePath,
             string vehicleTypeFilePath,
@@ -39,35 +44,44 @@ namespace AutoPark.Data
             VehicleTypeFilePath = vehicleTypeFilePath;
             RentFilePath = rentFilePath;
         }
+
         public List<Rent> LoadRents()
         {
             var csvStrings = CsvDeseriallizerService.GetCsvStringsFromFile(RentFilePath);
             var listOfRents = new List<Rent>();
+
             foreach (var csvString in csvStrings)
             {
                 listOfRents.Add(CsvDeseriallizerService.CreateRent(csvString));
             }
+
             return listOfRents;
         }
+
         public List<VehicleType> LoadTypes()
         {
             var csvStrings = CsvDeseriallizerService.GetCsvStringsFromFile(VehicleTypeFilePath);
             var listOfTypes = new List<VehicleType>();
+
             foreach (var csvString in csvStrings)
             {
                 listOfTypes.Add(CsvDeseriallizerService.CreateType(csvString));
             }
+
             return listOfTypes;
 
         }
+
         public List<Vehicle> LoadVehicles(IEnumerable<Rent> rents, IEnumerable<VehicleType> types)
         {
             var csvStrings = CsvDeseriallizerService.GetCsvStringsFromFile(VehicleFilePath);
             var listOfVehicles = new List<Vehicle>();
+
             foreach (var csvString in csvStrings)
             {
                 listOfVehicles.Add(CsvDeseriallizerService.CreateVehicle(csvString, rents, types));
             }
+
             return listOfVehicles;
         }
     }

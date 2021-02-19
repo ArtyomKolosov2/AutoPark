@@ -14,10 +14,12 @@ namespace AutoPark.Models.Other
         public int VehicleId { get; set; }
         public DateTime RentDate { get; set; }
         public decimal Cost { get; set; }
+
         public Rent()
         {
             RentDate = DateTime.Now;
         }
+
         public Rent(int vehicleId, DateTime time, decimal cost)
         {
             VehicleId = vehicleId;

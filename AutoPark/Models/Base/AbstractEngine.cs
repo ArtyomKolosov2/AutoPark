@@ -12,13 +12,17 @@ namespace AutoPark.Models.Base
     public abstract class AbstractEngine
     {
         public string Type { get; set; }
+
         public decimal TaxCoeff { get; set; }
+
         public int EngineCapacity { get; protected set; }
+
         protected AbstractEngine(string type, decimal coef)
         {
             Type = type;
             TaxCoeff = coef;
         }
+
         public abstract double GetMaxKilometers(double fuelTankCapacity);
     }
 }

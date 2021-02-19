@@ -13,7 +13,7 @@ namespace AutoPark.Models.Engines
             double engineVolume, 
             double fuelConsumptionPerHundred,
             int engineCapacity) 
-            : base(EngineTypeConstants.GASOLINE, 1m)
+            : base(EngineTypeConstants.Gasoline, 1m)
         {
             EngineVolume = engineVolume;
             EngineCapacity = engineCapacity;

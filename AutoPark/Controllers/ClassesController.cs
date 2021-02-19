@@ -36,11 +36,13 @@ namespace AutoPark.Controllers
             {
                 carType.Display();
             }
+
             _types.Last().TaxCoeff = 1.3m;
             var maxCoef = _types.Max(type => type.TaxCoeff);
             var averageCoeff = _types.Average(type => type.TaxCoeff);
             _outputService.ShowStringWithLineBreak($"{maxCoef:0.00}");
             _outputService.ShowStringWithLineBreak($"{averageCoeff:0.00}");
+
             foreach (var carType in _types)
             {
                 _outputService.ShowStringWithLineBreak(carType.ToString());

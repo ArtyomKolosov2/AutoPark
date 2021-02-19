@@ -36,12 +36,12 @@ namespace AutoPark.Controllers
             var stack = new UserStack<Vehicle>(16);
             _outputService.ShowVehicleEnumerable(stack);
             var counter = 1;
-
             foreach (var vehicle in _context.UserCollection.Vehicles)
             {
                 _outputService.ShowStringWithLineBreak($"{counter++}. {vehicle.ModelName} заехало в гараж");
                 stack.Push(vehicle);
             }
+
             counter--;
             while (stack.Count != 0)
             {

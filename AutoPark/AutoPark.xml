@@ -4,6 +4,305 @@
         <name>AutoPark</name>
     </assembly>
     <members>
+        <member name="T:AutoPark.Controllers.AbstractionController">
+            <summary>
+            Level 4
+            </summary>
+        </member>
+        <member name="M:AutoPark.Controllers.AbstractionController.#ctor(System.Collections.Generic.List{AutoPark.Models.Base.Vehicle},AutoPark.Views.OutputService.Base.IOutputService)">
+            <summary>
+            Setting up a controller with vehicles and outputservice
+            </summary>
+            <param name="vehicles"></param>
+            <param name="outputService"></param>
+        </member>
+        <member name="M:AutoPark.Controllers.AbstractionController.RunController">
+            <summary>
+            Run controller
+            </summary>
+        </member>
+        <member name="T:AutoPark.Controllers.Base.IController">
+            <summary>
+            Base interface for controllers
+            </summary>
+        </member>
+        <member name="M:AutoPark.Controllers.Base.IController.RunController">
+            <summary>
+            Method to start controller
+            </summary>
+        </member>
+        <member name="T:AutoPark.Controllers.ClassesController">
+            <summary>
+            Level 1 controller
+            </summary>
+        </member>
+        <member name="M:AutoPark.Controllers.ClassesController.#ctor(System.Collections.Generic.List{AutoPark.Models.Vehicles.VehicleType},AutoPark.Views.OutputService.Base.IOutputService)">
+            <summary>
+            Setting up a controller with default types and output service
+            </summary>
+            <param name="types"></param>
+            <param name="outputService"></param>
+        </member>
+        <member name="M:AutoPark.Controllers.ClassesController.RunController">
+            <summary>
+            Run controller
+            </summary>
+        </member>
+        <member name="T:AutoPark.Controllers.CollectionController">
+            <summary>
+            Level 5
+            </summary>
+        </member>
+        <member name="M:AutoPark.Controllers.CollectionController.#ctor(AutoPark.Data.CollectionContext,AutoPark.Views.OutputService.Base.IOutputService)">
+            <summary>
+            Setting up a controller
+            </summary>
+            <param name="collectionContext"></param>
+            <param name="outputService"></param>
+        </member>
+        <member name="M:AutoPark.Controllers.CollectionController.RunController">
+            <summary>
+            Run controller
+            </summary>
+        </member>
+        <member name="T:AutoPark.Controllers.DictionaryController">
+            <summary>
+            Level 8
+            </summary>
+        </member>
+        <member name="M:AutoPark.Controllers.DictionaryController.PrintOrders">
+            <summary>
+            Private method to show _orders dictionary in right format
+            </summary>
+        </member>
+        <member name="M:AutoPark.Controllers.DictionaryController.#ctor(System.String,AutoPark.Views.OutputService.Base.IOutputService)">
+            <summary>
+            Setting up a controller
+            </summary>
+            <param name="filePath"></param>
+            <param name="outputService"></param>
+        </member>
+        <member name="M:AutoPark.Controllers.DictionaryController.RunController">
+            <summary>
+            Run controller
+            </summary>
+        </member>
+        <member name="T:AutoPark.Controllers.InheritanceController">
+            <summary>
+            Level 3
+            </summary>
+        </member>
+        <member name="M:AutoPark.Controllers.InheritanceController.#ctor(System.Collections.Generic.List{AutoPark.Models.Base.Vehicle},AutoPark.Views.OutputService.Base.IOutputService)">
+            <summary>
+            Setting up a controller
+            </summary>
+            <param name="vehicles"></param>
+            <param name="outputService"></param>
+        </member>
+        <member name="M:AutoPark.Controllers.InheritanceController.RunController">
+            <summary>
+            Run controller
+            </summary>
+        </member>
+        <member name="T:AutoPark.Controllers.InterfacesController">
+            <summary>
+            Level 2
+            </summary>
+        </member>
+        <member name="M:AutoPark.Controllers.InterfacesController.#ctor(System.Collections.Generic.List{AutoPark.Models.Vehicles.VehicleType},System.Collections.Generic.List{AutoPark.Models.Base.Vehicle},AutoPark.Views.OutputService.Base.IOutputService)">
+            <summary>
+            Setting up a controller
+            </summary>
+            <param name="types"></param>
+            <param name="vehicles"></param>
+            <param name="outputService"></param>
+        </member>
+        <member name="M:AutoPark.Controllers.InterfacesController.RunController">
+            <summary>
+            Run controller
+            </summary>
+        </member>
+        <member name="T:AutoPark.Controllers.QueueController">
+            <summary>
+            Level 6
+            </summary>
+        </member>
+        <member name="M:AutoPark.Controllers.QueueController.#ctor(AutoPark.Data.CollectionContext,AutoPark.Views.OutputService.Base.IOutputService)">
+            <summary>
+            Setting up a controller
+            </summary>
+            <param name="context"></param>
+            <param name="outputService"></param>
+        </member>
+        <member name="M:AutoPark.Controllers.QueueController.RunController">
+            <summary>
+            Run controller
+            </summary>
+        </member>
+        <member name="T:AutoPark.Controllers.StackController">
+            <summary>
+            Level 7
+            </summary>
+        </member>
+        <member name="M:AutoPark.Controllers.StackController.#ctor(AutoPark.Data.CollectionContext,AutoPark.Views.OutputService.Base.IOutputService)">
+            <summary>
+            Setting up a controller
+            </summary>
+            <param name="context"></param>
+            <param name="outputService"></param>
+        </member>
+        <member name="M:AutoPark.Controllers.StackController.RunController">
+            <summary>
+            Run controller
+            </summary>
+        </member>
+        <member name="T:AutoPark.Data.CollectionContext">
+            <summary>
+            Collection context, that helps to work properly with Csv Deseriallizer
+            </summary>
+        </member>
+        <member name="P:AutoPark.Data.CollectionContext.UserCollection">
+            <summary>
+            User collection
+            </summary>
+        </member>
+        <member name="T:AutoPark.Data.Extensions.StringExtension">
+            <summary>
+            String extesions
+            </summary>
+        </member>
+        <member name="M:AutoPark.Data.Extensions.StringExtension.Center(System.String,System.Int32,System.Char)">
+            <summary>
+            Center source string and fill sides with some symbols
+            </summary>
+            <param name="source">Source string</param>
+            <param name="count">Amount of center symbols</param>
+            <param name="separator">Separated symbol</param>
+            <returns></returns>
+        </member>
+        <member name="T:AutoPark.Data.Services.CsvDeseriallizerService">
+            <summary>
+            CSV format Deseriallizer
+            </summary>
+        </member>
+        <member name="M:AutoPark.Data.Services.CsvDeseriallizerService.GetCsvStringsFromFile(System.String)">
+            <summary>
+            Gets csv strings from file. Uses CSV_NEWLINE constant ('\n')
+            </summary>
+            <param name="inFile"></param>
+            <returns>List of csv strings</returns>
+        </member>
+        <member name="M:AutoPark.Data.Services.CsvDeseriallizerService.CreateRent(System.String)">
+            <summary>
+            Creates Rent object from csv string
+            </summary>
+            <param name="csvString"></param>
+            <returns>Parsed rent object</returns>
+        </member>
+        <member name="M:AutoPark.Data.Services.CsvDeseriallizerService.DeserializeOrders(System.String)">
+            <summary>
+            Deserialize of orders string
+            </summary>
+            <param name="csvLine"></param>
+            <returns>List of orders</returns>
+        </member>
+        <member name="M:AutoPark.Data.Services.CsvDeseriallizerService.CreateType(System.String)">
+            <summary>
+            Creates VehicleType object from csv string
+            </summary>
+            <param name="csvString"></param>
+            <returns>Parsed vehicle type</returns>
+        </member>
+        <member name="M:AutoPark.Data.Services.CsvDeseriallizerService.CreateVehicle(System.String,System.Collections.Generic.IEnumerable{AutoPark.Models.Other.Rent},System.Collections.Generic.IEnumerable{AutoPark.Models.Vehicles.VehicleType})">
+            <summary>
+            Creates Vehicle object from csv string
+            </summary>
+            <param name="csvString">source string</param>
+            <param name="rents">list of rent for map data</param>
+            <param name="types">list of vehicle types for map data</param>
+            <returns>Parsed vehicle object</returns>
+        </member>
+        <member name="T:AutoPark.Data.UserCollection.Collections">
+            <summary>
+            Collection to store VehicleTypes and Vehicles
+            </summary>
+        </member>
+        <member name="P:AutoPark.Data.UserCollection.Collections.VehicleTypes">
+            <summary>
+            List of vehicles types
+            </summary>
+        </member>
+        <member name="P:AutoPark.Data.UserCollection.Collections.Vehicles">
+            <summary>
+            List of vehicles
+            </summary>
+        </member>
+        <member name="M:AutoPark.Data.UserCollection.Collections.SumTotalProfit">
+            <summary>
+            Counts total profits from cars rent
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:AutoPark.Data.UserCollections.UserQueue`1">
+            <summary>
+            My realization of queue
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:AutoPark.Data.UserCollections.UserStack`1">
+            <summary>
+            My realization stack
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:AutoPark.Data.VehicleComparer">
+            <summary>
+            Vehicle comparer
+            </summary>
+        </member>
+        <member name="M:AutoPark.Data.VehicleComparer.Compare(AutoPark.Models.Base.Vehicle,AutoPark.Models.Base.Vehicle)">
+            <summary>
+            Compares cars by their model names
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+        </member>
+        <member name="T:AutoPark.Models.Base.AbstractEngine">
+            <summary>
+            Base class for engines
+            </summary>
+        </member>
+        <member name="T:AutoPark.Models.Base.Colors">
+            <summary>
+            Enum with main colors
+            </summary>
+        </member>
+        <member name="T:AutoPark.Models.Base.EngineTypeConstants">
+            <summary>
+            Constants for engine types
+            Helps to properly work with engines
+            </summary>
+        </member>
+        <member name="T:AutoPark.Models.Base.Vehicle">
+            <summary>
+            Class, that represents main specifications of vehicles
+            </summary>
+        </member>
+        <member name="T:AutoPark.Models.Engines.AbstractCombustionEngine">
+            <summary>
+            Combustion engine, inherited form abstraction engine
+            </summary>
+        </member>
+        <member name="T:AutoPark.Models.Other.Rent">
+            <summary>
+            Rent object
+            </summary>
+        </member>
+        <member name="T:AutoPark.Models.Vehicles.VehicleType">
+            <summary>
+            Vehicle types of cars
+            </summary>
+        </member>
         <member name="M:AutoPark.Program.SetUpLocale">
             <summary>
             Setting up culture for project
@@ -24,6 +323,16 @@
             Entry point of program
             </summary>
             <param name="args"></param>
+        </member>
+        <member name="T:AutoPark.Views.OutputService.Base.IOutputService">
+            <summary>
+            Interface for output to user
+            </summary>
+        </member>
+        <member name="T:AutoPark.Views.OutputService.ConsoleOutputService">
+            <summary>
+            Implementation of output service
+            </summary>
         </member>
     </members>
 </doc>

@@ -10,12 +10,14 @@ namespace AutoPark.Models.Engines
     public class ElectricalEngine : AbstractEngine
     {
         public double ElectricityConsumption { get; set; }
+
         public ElectricalEngine(double electricityConsumption, int engineCapacity) :
-            base(EngineTypeConstants.ELECTRICAL, 0.1m)
+            base(EngineTypeConstants.Electrical, 0.1m)
         {
             ElectricityConsumption = electricityConsumption;
             EngineCapacity = engineCapacity;
         }
+
         public override double GetMaxKilometers(double batterySize) => batterySize / ElectricityConsumption;
         
     }

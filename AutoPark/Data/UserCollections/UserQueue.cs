@@ -19,14 +19,17 @@ namespace AutoPark.Data.UserCollections
         private int _tail;
         private int _size;
         public int Count => _size;
+
         private void DoubleArraySize()
         {
             Array.Resize(ref _queueArray, _queueArray.Length * 2);
         }
+
         public UserQueue()
         {
             _queueArray = new T[STANDART_SIZE];
         }
+
         public UserQueue(int count)
         {
             if (count < 0)
@@ -35,6 +38,7 @@ namespace AutoPark.Data.UserCollections
             }
             _queueArray = new T[count];
         }
+
         public UserQueue(IEnumerable<T> source)
         {
             if (source is null)
@@ -58,6 +62,7 @@ namespace AutoPark.Data.UserCollections
         }
 
         public bool Contains(T data) => _queueArray.Contains(data);
+
         public void Clear()
         {
             if (_size != 0)
@@ -65,6 +70,7 @@ namespace AutoPark.Data.UserCollections
                 Array.Clear(_queueArray, 0, _queueArray.Length);
             }
         }
+
         public T Dequeue()
         {
             T removed = _queueArray[_head];
@@ -84,6 +90,7 @@ namespace AutoPark.Data.UserCollections
             index = tmp;
         }
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+
         public IEnumerator<T> GetEnumerator() 
         {
             var tail = _tail;

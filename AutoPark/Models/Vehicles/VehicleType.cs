@@ -12,9 +12,11 @@ namespace AutoPark.Models.Vehicles
         public int Id { get; set; }
         public string TypeName { get; set; }
         public decimal TaxCoeff { get; set; }
+
         public VehicleType()
         {
         }
+
         public VehicleType(int id, string typeName, decimal taxCoeff)
         {
             Id = id;
@@ -28,6 +30,7 @@ namespace AutoPark.Models.Vehicles
                 $"name = {TypeName}\n" +
                 $"tax = {TaxCoeff}");
         }
+
         public override string ToString() => $"{TypeName},{TaxCoeff}";
 
 

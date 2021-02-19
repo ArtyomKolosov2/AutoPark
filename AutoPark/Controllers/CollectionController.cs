@@ -40,6 +40,7 @@ namespace AutoPark.Controllers
             var rents = _collectionContext.LoadRents();
             var vehicleTypes = _collectionContext.LoadTypes();
             var vehicles = _collectionContext.LoadVehicles(rents, vehicleTypes);
+
             _collectionContext.UserCollection = new Collections(vehicleTypes, vehicles, _outputService);
             _collectionContext.UserCollection.Print();
             _collectionContext.UserCollection.Vehicles.Add
@@ -52,6 +53,7 @@ namespace AutoPark.Controllers
                     },
                 }
              );
+
             _collectionContext.UserCollection.Delete(1);
             _collectionContext.UserCollection.Delete(4);
             _collectionContext.UserCollection.Print();

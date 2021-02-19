@@ -49,10 +49,12 @@ namespace AutoPark.Controllers
         {
             var parsedStrings = CsvDeseriallizerService.GetCsvStringsFromFile(_filePath);
             var listOfOrders = new List<string>();
+
             foreach (var csvString in parsedStrings)
             {
                 listOfOrders.AddRange(CsvDeseriallizerService.DeserializeOrders(csvString));
             }
+
             foreach (var order in listOfOrders)
             {
                 if (_orders.ContainsKey(order))
@@ -64,6 +66,7 @@ namespace AutoPark.Controllers
                     _orders.Add(order, 1);
                 }
             }
+
             PrintOrders();
         }
     }
